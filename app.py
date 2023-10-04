@@ -2,6 +2,7 @@ import gradio as gr
 import numpy as np
 import cv2
 from tqdm import trange
+from sklearn.cluster import KMeans
 
 class KMeansClustering():
     def __init__(self, n_clusters=8, max_iter=300):
@@ -63,8 +64,11 @@ def segment_image(image, model: KMeansClustering):
     labels = model.predict(image)
     return labels.reshape(w,b), model
     
-def generate_outputs(image):
-    model = KMeansClustering(n_clusters=24, max_iter=10)
+def generate_outputs(image, implementation, num_colours):
+    if implementation == 'custom':
+        model = KMeansClustering(n_clusters=num_colours, max_iter=10)
+    elif implementation == 'sk-learn':
+        model = KMeans(n_clusters=num_colours, n_init='auto')
     label_map, model = segment_image(image, model)
     
     clustered_image = model.cluster_centers_[label_map]
@@ -87,10 +91,24 @@ with gr.Blocks() as demo:
             image = gr.Image()
             submit = gr.Button('Generate')
         with gr.Column():
-            output = gr.Gallery()
+            num_colours = gr.Slider(
+                minimum=1,
+                maximum=40,
+                value=24,
+                step=1,
+                label='Number of colours'
+            )
+            implementation = gr.Dropdown(
+                choices=['sk-learn','custom'],
+                value='sk-learn',
+                label='Implementation'
+            )
+    with gr.Row():
+        output = gr.Gallery(preview=True)
+            
     submit.click(
         generate_outputs,
-        inputs=[image],
+        inputs=[image, implementation, num_colours],
         outputs=[output]
     )
 

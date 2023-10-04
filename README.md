@@ -1,3 +1,14 @@
+---
+title: {image2coloringbook}
+emoji: {✏️}
+colorFrom: {{red}}
+colorTo: {{indigo}}
+sdk: {{gradio}}
+sdk_version: {{3.46.0}}
+app_file: app.py
+pinned: false
+---
+
 # image2coloringbook
 
 ![image2coloringbook](https://raw.githubusercontent.com/ShawnLJW/random-assets-hosting/main/image2coloringbook.png)

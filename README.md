@@ -8,24 +8,15 @@ This [Colab notebook](https://colab.research.google.com/drive/1S91AsP2XHUKuxtUBE
 
 ## Usage
 
-Once you downloaded or cloned this repo, open the directory in your terminal. 
+To run the application locally, cloned this repo and open the directory in your terminal.
 
-If you have conda installed:
-
-```shell
-conda env create -f environment.yml
-conda activate image2coloringbook
-```
-
-Otherwise create a virtual environment and install with pip
+Install all requirements with pip:
 
 ```shell
-python -m venv image2coloringbook
-image2coloringbook\Scripts\activate.bat
 pip install -r requirements.txt
 ```
 
-Once all requirements are installed, you can run the web ui with
+Once all requirements are installed, you can run the web ui with:
 
 ```shell
 gradio app.py

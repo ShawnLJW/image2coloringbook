@@ -19,7 +19,9 @@ This [Colab notebook](https://colab.research.google.com/drive/1S91AsP2XHUKuxtUBE
 
 ## Usage
 
-To run the application locally, cloned this repo and open the directory in your terminal.
+The application is available as a [Hugging Face space](https://shawnljw-image2coloringbook.hf.space).
+
+To run the application locally, clone this repo and open the directory in your terminal.
 
 Install all requirements with pip:
 

@@ -1,6 +1,6 @@
 # image2coloringbook
 
-![image2coloringbook](assets/image2coloringbook.png)
+![image2coloringbook](https://raw.githubusercontent.com/ShawnLJW/random-assets-hosting/main/image2coloringbook.png)
 
 A simple tool that converts an image into a coloring book. It runs on a custom implementation of the k-means clustering algorithm by default but comes with the option to use scikit-learn's implementation.
 
